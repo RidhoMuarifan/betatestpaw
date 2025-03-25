@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Utama - Pengalaman Musik Daerah Interaktif</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Background GIF Fullscreen */
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      text-align: center;
+      background: url('https://i.pinimg.com/originals/65/32/ce/6532ce4a25ecec84272ec44fe2121a46.gif') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Overlay untuk memastikan teks terbaca */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    /* Glassmorphism Effect untuk kontainer */
+    .menu-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* Tombol dengan efek gradasi */
+    .button {
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      background: linear-gradient(135deg, blue, #ff7eb3);
+      box-shadow: 0 5px 15px rgba(118, 161, 255, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(127, 118, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="menu-container">
+    <h1>Selamat Datang di Pengalaman Musik Daerah Interaktif</h1>
+    <div class="button-container">
+      <button class="button" onclick="location.href='piano/piano.html'">🎹 Mulai Piano</button>
+      <button class="button" onclick="location.href='quiz/quiz.html'">🧠 Mulai Quiz</button>
+      <button class="button" onclick="location.href='developer/developer.html'">👨‍💻 Developer</button>
+    </div>
+  </div>
+</body>
+</html>

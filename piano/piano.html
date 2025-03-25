@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano Interaktif - Pengalaman Musik Daerah</title>
+    <!-- Sertakan Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- File CSS eksternal -->
+    <link rel="stylesheet" href="piano.css">
+  </head>
+  <body class="m-0 font-[Poppins] bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-[#333] flex flex-col items-center">
+    <div class="container w-11/12 max-w-5xl my-5 bg-white rounded-2xl p-5 shadow-xl">
+      <!-- Section Slider -->
+      <section class="slider-section text-center mb-10">
+        <h1 class="text-2xl text-[#1e3c72] uppercase tracking-wide mb-5">Lagu Daerah</h1>
+  
+        <!-- Container slider dengan lebar maksimal dan center -->
+        <div class="slider-container relative w-full max-w-md mx-auto flex flex-col items-center" style="perspective: 1200px;">
+          <!-- Card berisi gambar, gunakan max-w-sm / max-w-md agar tidak terlalu lebar -->
+          <div class="card w-full max-w-md bg-[#1e3c72] rounded-2xl p-2 shadow-lg overflow-hidden 
+                      transform transition-transform duration-600 ease-in-out" 
+               style="transform-style: preserve-3d;">
+            <!-- Gambar di tengah dengan mx-auto block -->
+            <img id="slider-img" 
+                 src="https://i.pinimg.com/236x/84/fc/3a/84fc3a11da127275f4221f20f0466fc3.jpg" 
+                 alt="Slide" 
+                 class="mx-auto block max-w-full max-h-[400px] object-contain rounded-xl transition-transform duration-500 ease-in-out">
+          </div>
+        </div>
+  
+        <div class="buttons mt-6 flex justify-center gap-4">
+          <button onclick="prevSlide()" 
+                  class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full 
+                         transition-transform duration-300 hover:scale-110 
+                         hover:bg-gradient-to-r from-blue-500 to-pink-400">
+            Prev
+          </button>
+          <button onclick="nextSlide()" 
+                  class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full 
+                         transition-transform duration-300 hover:scale-110 
+                         hover:bg-gradient-to-r from-blue-500 to-pink-400">
+            Next
+          </button>
+        </div>
+      </section>
+  
+      <!-- Section Piano -->
+      <section class="piano-section text-center">
+        <div id="notation" class="notation text-2xl font-bold mb-5 text-[#333] bg-white p-4 rounded-lg shadow-md min-h-[40px]">
+          Tekan tombol piano
+        </div>
+        <div class="piano-container w-full overflow-x-auto whitespace-nowrap p-5 border-2 border-gray-300 rounded-lg bg-white mb-5 shadow-md">
+          <div class="piano inline-flex relative">
+            <!-- Oktaf 0 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A0" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#0" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B0" data-solfege="Si"></div>
+            <!-- Oktaf 1 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C1" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#1" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D1" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#1" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E1" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F1" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#1" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G1" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#1" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A1" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#1" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B1" data-solfege="Si"></div>
+            <!-- Oktaf 2 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C2" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#2" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D2" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#2" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E2" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F2" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#2" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G2" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#2" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A2" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#2" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B2" data-solfege="Si"></div>
+            <!-- Oktaf 3 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C3" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#3" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D3" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#3" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E3" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F3" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#3" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G3" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#3" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A3" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#3" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B3" data-solfege="Si"></div>
+            <!-- Oktaf 4 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C4" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#4" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D4" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#4" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E4" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F4" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#4" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G4" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#4" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A4" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#4" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B4" data-solfege="Si"></div>
+            <!-- Oktaf 5 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C5" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#5" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D5" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#5" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E5" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F5" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#5" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G5" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#5" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A5" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#5" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B5" data-solfege="Si"></div>
+            <!-- Oktaf 6 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C6" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#6" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D6" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#6" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E6" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F6" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#6" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G6" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#6" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A6" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#6" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B6" data-solfege="Si"></div>
+            <!-- Oktaf 7 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C7" data-solfege="Do"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="C#7" data-solfege="Do#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="D7" data-solfege="Re"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="D#7" data-solfege="Re#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="E7" data-solfege="Mi"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="F7" data-solfege="Fa"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="F#7" data-solfege="Fa#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="G7" data-solfege="Sol"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="G#7" data-solfege="Sol#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="A7" data-solfege="La"></div>
+            <div class="key black w-8 h-32 bg-black bg-gradient-to-b from-black to-gray-800 -mx-4 z-10 rounded-b-lg flex justify-center items-end pb-2 text-white" data-note="A#7" data-solfege="La#"></div>
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="B7" data-solfege="Si"></div>
+            <!-- Oktaf 8 -->
+            <div class="key white w-12 h-48 bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-b-lg flex justify-center items-end pb-2" data-note="C8" data-solfege="Do"></div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 items-center">
+          <button id="resetButton" class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full transition-transform duration-300 hover:scale-110 hover:bg-gradient-to-r from-blue-500 to-pink-400">Reset Notasi</button>
+          <button onclick="location.href='../index.html'" class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full transition-transform duration-300 hover:scale-110 hover:bg-gradient-to-r from-blue-500 to-pink-400">Kembali ke Menu</button>
+        </div>
+      </section>
+    </div>
+  
+    <!-- File JavaScript eksternal -->
+    <script src="piano.js"></script>
+  </body>
+</html>

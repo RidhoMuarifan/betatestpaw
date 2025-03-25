@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tim Developer - Pengalaman Musik Daerah Interaktif</title>
+  <!-- Sertakan Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Link ke file CSS eksternal -->
+  <link rel="stylesheet" href="developer.css">
+</head>
+<body class="relative min-h-screen flex items-center justify-center font-[Poppins] bg-cover bg-center" style="background-image: url('https://i.pinimg.com/originals/7d/2e/4e/7d2e4ed5d52054cabd4402c54397f0c3.gif');">
+  <!-- Overlay transparan -->
+  <div class="overlay"></div>
+
+  <!-- Kontainer utama dengan efek glassmorphism -->
+  <div class="container relative z-20 bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-lg max-w-3xl w-11/12">
+    <h1 class="heading text-shadow">Tim Developer</h1>
+
+    <!-- Tombol Dark Mode Toggle -->
+    <button id="darkModeToggle" class="toggle-btn">
+      Toggle Dark Mode
+    </button>
+
+    <!-- Grid Developer -->
+    <div class="developer-grid">
+      <!-- Developer Card 1 -->
+      <div class="developer-card" data-name="WAHNA NUR FAUZIAH">
+        <div class="developer-photo">
+          <img src="https://ais.unmul.ac.id/file/foto/2305176009" alt="Developer 1">
+        </div>
+        <div class="developer-name">WAHNA NUR FAUZIAH</div>
+        <div class="developer-role">Front-End Developer</div>
+      </div>
+      <!-- Developer Card 2 -->
+      <div class="developer-card" data-name="RIDHO MUARIFAN">
+        <div class="developer-photo">
+          <img src="https://ais.unmul.ac.id/file/foto/2305176014" alt="Developer 2">
+        </div>
+        <div class="developer-name">RIDHO MUARIFAN</div>
+        <div class="developer-role">UI/UX Designer</div>
+      </div>
+      <!-- Developer Card 3 -->
+      <div class="developer-card" data-name="MUHAMMAD FAISAL">
+        <div class="developer-photo">
+          <img src="https://ais.unmul.ac.id/file/foto/2305176030" alt="Developer 3">
+        </div>
+        <div class="developer-name">MUHAMMAD FAISAL</div>
+        <div class="developer-role">DevOps Engineer</div>
+      </div>
+      <!-- Developer Card 4 -->
+      <div class="developer-card" data-name="GISKA ASWADINAH">
+        <div class="developer-photo">
+          <img src="https://ais.unmul.ac.id/file/foto/2305176039" alt="Developer 4">
+        </div>
+        <div class="developer-name">GISKA ASWADINAH</div>
+        <div class="developer-role">Back-End Developer</div>
+      </div>
+    </div>
+
+    <!-- Tombol Kembali ke Menu Utama -->
+    <button id="backButton" class="back-button">
+      Kembali ke Menu Utama
+    </button>
+  </div>
+
+  <!-- Link ke file JavaScript eksternal -->
+  <script src="developer.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Musik Daerah & Alat Musik - Revamped</title>
+  <!-- Sertakan Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body class="m-0 font-[Poppins] bg-[url('https://cdn.pixabay.com/animation/2023/04/06/23/17/23-17-32-365_512.gif')] bg-cover bg-center flex flex-col items-center p-5">
+
+  <!-- Notifikasi -->
+  <div id="notification" class="fixed top-5 right-5 z-50 hidden px-4 py-2 rounded shadow"></div>
+
+  <!-- Progress Bar -->
+  <div class="w-full max-w-3xl mb-4">
+    <div id="progress-bar" class="w-full h-2 bg-gray-300 rounded">
+      <div id="progress" class="h-full bg-blue-500 rounded" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div id="quiz-container" class="w-11/12 max-w-3xl bg-white rounded-2xl p-5 shadow-xl text-center">
+    <div id="quiz-content">
+      <div class="question-number text-lg mb-2 text-[#1e3c72]" id="question-number"></div>
+      <div class="question-text text-xl mb-5" id="question-text"></div>
+      <div class="media-container mb-5 flex flex-col items-center" id="media-container"></div>
+      <div class="options flex flex-col gap-2.5 mb-5" id="options"></div>
+      <div class="navigation flex justify-between mt-5">
+        <button id="prev-btn" onclick="prevQuestion()" class="py-2 px-4 text-base rounded bg-[#1e3c72] text-white">Prev</button>
+        <button id="next-btn" onclick="nextQuestion()" class="py-2 px-4 text-base rounded bg-[#1e3c72] text-white">Next</button>
+      </div>
+      <div class="score text-lg mt-2 text-[#1e3c72]" id="score-display">Score: 0</div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
